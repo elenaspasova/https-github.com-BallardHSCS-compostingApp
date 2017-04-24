@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.example.bal_esspasova.compostingapp.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="How to Compost"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="192dp"
+        android:onClick="sendMessage"/>
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="192dp"
+        android:onClick="sendMessage"/>
 </android.support.constraint.ConstraintLayout>
