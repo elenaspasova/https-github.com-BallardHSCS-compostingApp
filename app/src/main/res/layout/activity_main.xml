@@ -23,4 +23,5 @@
         tools:layout_editor_absoluteX="213dp"
         tools:layout_editor_absoluteY="192dp"
         android:onClick="sendMessage"/>
+
 </android.support.constraint.ConstraintLayout>
