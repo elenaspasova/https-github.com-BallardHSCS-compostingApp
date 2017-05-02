@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<application xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bal_esspasova.compostingapp">
 
     <activity
@@ -26,9 +26,7 @@
                     <action android:name="android.intent.action.SEARCH" />
                 </intent-filter>
                 <meta-data android:name="android.app.searchable"
-                    android:resource="@xml/searchable" ></meta-data> />
-
+                    android:resource="@xml/searchable" ></meta-data> /></activity>
 
     </application>
 
-</manifest>
