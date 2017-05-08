@@ -24,7 +24,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendMessage"
+        android:onClick="openGuide"
         android:text="How to Compost"
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="162dp"

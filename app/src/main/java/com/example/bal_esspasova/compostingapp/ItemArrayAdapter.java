@@ -18,7 +18,7 @@ import java.util.List;
  * Created by bal_esspasova on 5/8/2017.
  */
 
-public class ItemArrayAdapter extends ArrayAdapter {
+public class ItemArrayAdapter extends ArrayAdapter<String[]{
 
     private List<String[]> scoreList = new ArrayList<String[]>();
 
@@ -53,7 +53,7 @@ public class ItemArrayAdapter extends ArrayAdapter {
             row = inflater.inflate(R.layout.single_item_layout, parent, false);
             viewHolder = new ItemViewHolder();
             viewHolder.itemName = (TextView) row.findViewById(R.id.itemName);
-            viewHolder.score = (TextView) row.findViewBtId(R.id.score);
+            viewHolder.bin = (TextView) row.findViewById(R.id.bin);
             row.setTag(viewHolder);
 
         }
@@ -61,6 +61,8 @@ public class ItemArrayAdapter extends ArrayAdapter {
             viewHolder = (ItemViewHolder) row.getTag();
         }
         String[] stat = getItem(position);
-        //6:28
+        viewHolder.itemName.setText(stat[0]);
+        viewHolder.bin.setText(stat[1]);
+        return row;
     }
 }
