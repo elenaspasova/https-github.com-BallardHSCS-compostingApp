@@ -18,7 +18,7 @@ import java.util.List;
  * Created by bal_esspasova on 5/8/2017.
  */
 
-public class ItemArrayAdapter extends ArrayAdapter<String[]{
+public class ItemArrayAdapter extends ArrayAdapter<String[]>{
 
     private List<String[]> scoreList = new ArrayList<String[]>();
 

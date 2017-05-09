@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<application xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bal_esspasova.compostingapp">
 
-    <activity
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name=".SingleListItemActivity"
+            android:label="SingleListItemActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".SearchActivity"></activity>
                 <intent-filter>
                     <action android:name="android.intent.action.SEARCH" />
+                    <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
                 <meta-data android:name="android.app.searchable"
-                    android:resource="@xml/searchable" ></meta-data> /></activity>
+                    android:resource="@xml/searchable" ></meta-data> /></application>
+</manifest>
 
-    </application>
+
 

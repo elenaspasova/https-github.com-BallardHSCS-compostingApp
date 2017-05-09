@@ -18,7 +18,7 @@ import java.util.List;
  * Created by bal_esspasova on 5/8/2017.
  */
 
-public class SingleListItem extends AppCompatActivity{
+public class SingleListItemActivity extends AppCompatActivity{
 
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
@@ -28,6 +28,19 @@ public class SingleListItem extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_item_layout);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+
         listView = (ListView) findViewById(R.id.list_view);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
 
@@ -35,7 +48,7 @@ public class SingleListItem extends AppCompatActivity{
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.stats);
+        InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
         CSVReader csv = new CSVReader(inputStream);
         List<String[]> itemList = csv.read();
 

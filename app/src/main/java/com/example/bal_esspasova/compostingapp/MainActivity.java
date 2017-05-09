@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openGuide(View view) {
-        Intent intent = new Intent(this, SingleListItem.class);
-//        String message = editText.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, message);
+        Intent intent = new Intent(this, SingleListItemActivity.class);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 }
