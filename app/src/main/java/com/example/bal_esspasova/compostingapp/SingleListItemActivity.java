@@ -20,8 +20,8 @@ import java.util.List;
 
 public class SingleListItemActivity extends AppCompatActivity{
 
-    private ListView listView;
-    private ItemArrayAdapter itemArrayAdapter;
+    ListView listView;
+    ItemArrayAdapter itemArrayAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +48,8 @@ public class SingleListItemActivity extends AppCompatActivity{
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
+        InputStream inputStream = getResources().openRawResource(R.raw.compostableItems);
+
         CSVReader csv = new CSVReader(inputStream);
         List<String[]> itemList = csv.read();
 
