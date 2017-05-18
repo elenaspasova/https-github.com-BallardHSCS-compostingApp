@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">CompostingApp</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
-    <string name="searchBox">Search</string>
-    <string name="CompostGuideButton">How To Compost</string>
-    <string name="map">Map</string>
 </resources>
