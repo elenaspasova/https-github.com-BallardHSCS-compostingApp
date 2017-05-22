@@ -13,8 +13,8 @@
     tools:layout_editor_absoluteX="8dp">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        android:id="@+id/searchView"
+        layout="@layout/search_function"/>
 
     <!--<android.support.v7.widget.Toolbar-->
         <!--android:id="@+id/my_toolbar"-->
