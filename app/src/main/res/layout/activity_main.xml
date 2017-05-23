@@ -13,29 +13,23 @@
     tools:layout_editor_absoluteX="8dp"
     android:id="@+id/rel_layout">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_view"
 
-        >
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     </ListView>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:onClick="openGuide"
-        android:text="How to Compost"
+        android:text="@string/CompostGuideButton"
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="162dp"
         android:layout_marginRight="42dp"
@@ -50,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="sendMessage"
-        android:text="Map"
+        android:text="@string/map"
         tools:layout_editor_absoluteX="224dp"
         tools:layout_editor_absoluteY="162dp"
         android:layout_marginRight="33dp"
