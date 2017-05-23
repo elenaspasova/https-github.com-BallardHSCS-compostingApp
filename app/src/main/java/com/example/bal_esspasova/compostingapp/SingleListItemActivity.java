@@ -24,8 +24,8 @@ public class SingleListItemActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_item_layout);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+//        setSupportActionBar(toolbar);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
