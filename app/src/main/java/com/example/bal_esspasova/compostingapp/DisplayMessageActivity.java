@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.widget.ImageView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
 
@@ -30,8 +29,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        setInitialImage();
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -46,11 +43,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 searchManager.getSearchableInfo(getComponentName()));
 
         return true;
-    }
-    private void setInitialImage() {
-        final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
-        imageView.setImageResource(R.drawable.mapfloor2);
-
     }
 
 }
