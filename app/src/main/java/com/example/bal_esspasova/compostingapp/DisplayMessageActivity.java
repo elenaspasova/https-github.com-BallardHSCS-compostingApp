@@ -49,7 +49,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     }
     private void setInitialImage() {
         final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
-        imageView.setImageResource(R.drawable.zemap);
+        imageView.setImageResource(R.drawable.floor1);
 
     }
 
