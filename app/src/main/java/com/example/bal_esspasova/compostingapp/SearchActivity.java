@@ -3,7 +3,6 @@ package com.example.bal_esspasova.compostingapp;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -18,7 +17,6 @@ public class SearchActivity extends AppCompatActivity{
     List<String[]> itemList;
     int listLocation;
     Boolean matchItem;
-    DatabaseTable db = new DatabaseTable(this);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +33,7 @@ public class SearchActivity extends AppCompatActivity{
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            Cursor c = db.getWordMatches(query, null);
+            System.out.println(query);
             //use the query to search your data somehow
             String userInput = query.trim();
 
