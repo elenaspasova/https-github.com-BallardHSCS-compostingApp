@@ -33,7 +33,6 @@ public class SearchActivity extends AppCompatActivity{
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            System.out.println(query);
             //use the query to search your data somehow
             String userInput = query.trim();
 
