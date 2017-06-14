@@ -1,0 +1,6 @@
+Item Name, Bin, Location
+Lunch Tray, Compost, BHS
+Fork, Trash, BHS
+Spoon, Trash, BHS
+Knife, Trash, BHS
+Dirty Napkin, Compost, El Camion
