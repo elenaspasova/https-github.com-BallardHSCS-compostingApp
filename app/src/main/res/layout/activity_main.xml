@@ -7,11 +7,12 @@
     tools:context="com.example.bal_esspasova.compostingapp.MainActivity">
 
 <RelativeLayout
-    android:layout_width="368dp"
-    android:layout_height="495dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:layout_editor_absoluteY="8dp"
     tools:layout_editor_absoluteX="8dp"
     android:id="@+id/rel_layout">
+
 
     <ListView
         android:layout_width="match_parent"
@@ -22,6 +23,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     </ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_centerInParent="true">
 
     <Button
         android:id="@+id/button"
@@ -52,6 +60,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/button"
         android:layout_toStartOf="@+id/button" />
+    </LinearLayout>
 
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -11,14 +11,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
-public class DisplayMessageActivity extends AppCompatActivity {
+public class DisplayMessageActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+        Button level1 = (Button)findViewById(R.id.level1);
+        Button level2 = (Button)findViewById(R.id.level2);
+        level1.setOnClickListener(changeToFirstFloor);
+        level2.setOnClickListener(changeToSecondFloor);
         Toolbar toolbar = (Toolbar) findViewById(R.id.searchView);
         setSupportActionBar(toolbar);
 
@@ -47,10 +52,38 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         return true;
     }
+
+
     private void setInitialImage() {
         final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
         imageView.setImageResource(R.drawable.floor1);
 
     }
+
+    private View.OnClickListener changeToFirstFloor = new View.OnClickListener() {
+        public void onClick(View v) {
+            final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
+            imageView.setImageResource(R.drawable.floor1);
+        }
+    };
+
+    private View.OnClickListener changeToSecondFloor = new View.OnClickListener() {
+        public void onClick(View v) {
+            final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
+            imageView.setImageResource(R.drawable.floor2);
+        }
+    };
+
+//    private void levelOne() {
+//        final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
+//        imageView.setImageResource(R.drawable.floor1);
+//    }
+//
+//    private void levelTwo() {
+//        final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
+//        imageView.setImageResource(R.drawable.floor2);
+//    }
+
+
 
 }
