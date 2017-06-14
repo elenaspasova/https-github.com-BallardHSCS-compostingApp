@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.widget.ListView;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,7 @@ public class SingleListItemActivity extends AppCompatActivity{
 
     ListView listView;
     ItemArrayAdapter itemArrayAdapter;
+    private List<String[]> itemList = new ArrayList();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class SingleListItemActivity extends AppCompatActivity{
         InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
 
         CSVReader csv = new CSVReader(inputStream);
-        List<String[]> itemList = csv.read();
+        itemList = csv.read();
 
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
