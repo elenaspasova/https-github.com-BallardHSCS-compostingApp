@@ -1,10 +1,15 @@
 package com.example.bal_esspasova.compostingapp;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ListView;
 
 import java.io.InputStream;
@@ -42,5 +47,19 @@ public class SingleListItemActivity extends AppCompatActivity{
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
         }
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+
+        //connects searchable config to the searchView
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.searchView).getActionView();
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
+
+        return true;
     }
 }

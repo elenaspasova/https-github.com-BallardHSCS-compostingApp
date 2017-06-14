@@ -10,5 +10,5 @@
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
         android:queryHint="Search"
-        tools:showIn="@layout/activity_display_message"/>
+        tools:showIn="@layout/single_item_layout"/>
 </LinearLayout>
