@@ -5,9 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include
-        android:id="@+id/searchView"
-        layout="@layout/search_function"/>
+    <!--<include-->
+        <!--android:id="@+id/searchView"-->
+        <!--layout="@layout/search_function"/>-->
 
 
     <ListView
@@ -18,6 +18,39 @@
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true">
     </ListView>
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:labelFor="@+id/textView"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search"
+        android:inputType="text"
+         />
+
+    <!--&lt;!&ndash;<RelativeLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="368dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="495dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;tools:layout_editor_absoluteY="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;tools:layout_editor_absoluteX="8dp">&ndash;&gt;-->
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/my_toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--android:elevation="4dp"-->
+            <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+            <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>-->
+
+    <!--&lt;!&ndash;</RelativeLayout>&ndash;&gt;-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,6 +70,14 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/single_item_layout_margin"
         android:textColor="#000000"
+        />
+
+    <Button
+        android:id="@+id/enterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/enter"
         />
 
 </RelativeLayout>
