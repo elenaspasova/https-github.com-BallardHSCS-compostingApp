@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
     static class ItemViewHolder{
         TextView itemName;
         TextView bin;
+        TextView location;
     }
 
     public ItemArrayAdapter(Context context, int resource) {
@@ -54,6 +57,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
             viewHolder = new ItemViewHolder();
             viewHolder.itemName = (TextView) row.findViewById(R.id.itemName);
             viewHolder.bin = (TextView) row.findViewById(R.id.bin);
+            viewHolder.location = (TextView) row.findViewById(R.id.location);
             row.setTag(viewHolder);
 
         }
@@ -63,6 +67,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
         String[] stat = getItem(position);
         viewHolder.itemName.setText(stat[0]);
         viewHolder.bin.setText(stat[1]);
+        viewHolder.location.setText(stat[2]);
         return row;
     }
 }
