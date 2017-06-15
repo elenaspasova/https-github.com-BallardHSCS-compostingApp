@@ -6,63 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.bal_esspasova.compostingapp.DisplayMessageActivity">
 
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
-
-
-    <!--</android.support.design.widget.AppBarLayout>-->
-
-    <!--<include layout="@layout/content_display_message" />-->
-
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:id="@+id/activity_display_message">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_centerHorizontal="true">
-
-            <Button
-                android:gravity="right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/level1"
-                android:text="First Floor"
-                android:layout_weight="1"/>
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
 
-            <Button
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/level2"
-                android:text="Second Floor"
-                android:layout_weight="1"/>
+    </android.support.design.widget.AppBarLayout>
 
+    <include layout="@layout/content_display_message" />
 
-        </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
-
-    </RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>

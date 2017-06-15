@@ -8,9 +8,4 @@
     tools:context="com.example.bal_esspasova.compostingapp.DisplayMessageActivity"
     tools:showIn="@layout/activity_display_message">
 
-    <ImageView
-        android:id="@+id/imageDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 </android.support.constraint.ConstraintLayout>

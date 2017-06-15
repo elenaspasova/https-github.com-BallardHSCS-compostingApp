@@ -9,6 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
-        android:queryHint="Search"
-        tools:showIn="@layout/activity_display_message"/>
+        android:queryHint="Search"/>
+        <!--tools:showIn="@layout/activity_display_message"/>-->
 </LinearLayout>
