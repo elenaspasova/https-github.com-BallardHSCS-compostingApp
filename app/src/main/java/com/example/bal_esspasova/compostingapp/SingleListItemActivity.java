@@ -1,15 +1,20 @@
 package com.example.bal_esspasova.compostingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ListView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import static com.example.bal_esspasova.compostingapp.R.id.editText;
 
 /**
  * Created by bal_esspasova on 5/8/2017.
@@ -54,5 +59,11 @@ public class SingleListItemActivity extends AppCompatActivity{
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
         }
+    }
+    public void openSearch(View view) {
+        Intent intent = new Intent(this, newSearchActivity.class);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

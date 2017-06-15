@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void openGuide(View view) {
         Intent intent = new Intent(this, SingleListItemActivity.class);
         String message = editText.getText().toString();
