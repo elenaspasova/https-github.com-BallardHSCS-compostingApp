@@ -7,8 +7,8 @@
     tools:context="com.example.bal_esspasova.compostingapp.MainActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="584dp"
+        android:layout_height="871dp"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"
         android:id="@+id/rel_layout">
