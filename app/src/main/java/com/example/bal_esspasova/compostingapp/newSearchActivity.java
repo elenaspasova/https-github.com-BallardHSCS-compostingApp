@@ -159,6 +159,9 @@ public class newSearchActivity extends AppCompatActivity {
                     listLocation = i;
                     break;
                 }
+                else{
+                    matchItem = false;
+                }
             }
             //user searched for an item
             if (matchItem) {
@@ -231,6 +234,7 @@ public class newSearchActivity extends AppCompatActivity {
             Bundle b = new Bundle();
             b.putInt("reslocation", resLocation);
             b.putInt("itemlocation", itemLocation);
+            b.putInt("filter", filter);
             intent.putExtras(b);
             mEdit.setText("");
             startActivity(intent);
