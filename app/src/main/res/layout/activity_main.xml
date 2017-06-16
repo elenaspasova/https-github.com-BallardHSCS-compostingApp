@@ -14,60 +14,80 @@
         android:id="@+id/rel_layout">
 
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/list_view"
-
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-        </ListView>
-
-        <ImageView
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/titlepage"
-            android:id="@+id/titlepage"/>
+        <!--<ListView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/list_view"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true">-->
+        <!--</ListView>-->
 
         <LinearLayout
-            android:layout_below="@id/titlepage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_centerHorizontal="true">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:weightSum="3">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:onClick="openGuide"
-                android:text="@string/CompostGuideButton"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="162dp"
-                android:layout_marginRight="42dp"
-                android:layout_marginEnd="42dp"
-                android:layout_alignBaseline="@+id/button2"
-                android:layout_alignBottom="@+id/button2"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="sendMessage"
-                android:text="@string/map"
-                tools:layout_editor_absoluteX="224dp"
-                tools:layout_editor_absoluteY="162dp"
-                android:layout_marginRight="33dp"
-                android:layout_marginEnd="33dp"
+                android:src="@drawable/titlepage"
+                android:id="@+id/titlepage"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/button"
-                android:layout_toStartOf="@+id/button" />
+                android:layout_centerHorizontal="true"/>
+
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="openGuide"
+                android:text="HOW TO COMPOST:                   An incomplete guide to waste disposal of items around the Ballard neighborhood! Search for an item and learn which bin it goes into."
+                android:textSize="25dp"
+                android:layout_alignParentLeft="true"
+                android:background="#D50000"
+                android:layout_margin="5dp"/>
+                <!--tools:layout_editor_absoluteX="54dp"-->
+                <!--tools:layout_editor_absoluteY="162dp"-->
+                <!--android:layout_marginRight="42dp"-->
+                <!--android:layout_marginEnd="42dp"-->
+                <!--android:layout_alignBaseline="@+id/button2"-->
+                <!--android:layout_alignBottom="@+id/button2"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentEnd="true"-->
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="sendMessage"
+                android:text="MAP:                                                 A map of BHS to get you acquainted with the locations of compost, recycle, and garbage bins near you!"
+                android:textSize="25dp"
+                android:layout_alignParentRight="true"
+                android:background="#D50000"
+                android:layout_margin="5dp"/>
+                <!--tools:layout_editor_absoluteX="224dp"-->
+                <!--tools:layout_editor_absoluteY="162dp"-->
+                <!--android:layout_marginRight="33dp"-->
+                <!--android:layout_marginEnd="33dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_toLeftOf="@+id/button"-->
+                <!--android:layout_toStartOf="@+id/button"-->
+            </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>
