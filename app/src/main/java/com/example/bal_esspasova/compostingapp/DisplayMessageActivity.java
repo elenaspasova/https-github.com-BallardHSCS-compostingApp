@@ -14,43 +14,45 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+//this class corresponds with the map page of our activity which shows:
+//a map of the school with dots for bins
+//buttons to choose whether to look at the first or second floor
+//a color coordinated key for the map
 public class DisplayMessageActivity extends AppCompatActivity{
 
     @Override
+    /**
+     * upon creation of the activity, the layout it set to the desired layout for the map
+     * the buttons and their setOnClickListeners are also activated
+     * the last thing it does is call a method to set the initial map image which is to be an image of level 1 of the school
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_display_message);
+
         Button level1 = (Button)findViewById(R.id.level1);
         Button level2 = (Button)findViewById(R.id.level2);
         level1.setOnClickListener(changeToFirstFloor);
         level2.setOnClickListener(changeToSecondFloor);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.searchView);
-        setSupportActionBar(toolbar);
 
         setInitialImage();
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
 
-        //connects searchable config to the searchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-
-        return true;
-    }
-
-
+    /**
+     * displays the first floor image on the screen
+     * is the initial image when the map screen is launched
+     */
     private void setInitialImage() {
         final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
         imageView.setImageResource(R.drawable.floor1);
 
     }
 
+    /**
+     * displays the first floor image on the screen
+     * runs upon clicking of the "FIRST FLOOR" button
+     */
     private View.OnClickListener changeToFirstFloor = new View.OnClickListener() {
         public void onClick(View v) {
             final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
@@ -58,23 +60,14 @@ public class DisplayMessageActivity extends AppCompatActivity{
         }
     };
 
+    /**
+     * displays the second floor image on the screen
+     * runs upon clicking of the "SECOND FLOOR" button
+     */
     private View.OnClickListener changeToSecondFloor = new View.OnClickListener() {
         public void onClick(View v) {
             final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
             imageView.setImageResource(R.drawable.floor2);
         }
     };
-
-//    private void levelOne() {
-//        final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
-//        imageView.setImageResource(R.drawable.floor1);
-//    }
-//
-//    private void levelTwo() {
-//        final ImageView imageView = (ImageView) findViewById(R.id.imageDisplay);
-//        imageView.setImageResource(R.drawable.floor2);
-//    }
-
-
-
 }

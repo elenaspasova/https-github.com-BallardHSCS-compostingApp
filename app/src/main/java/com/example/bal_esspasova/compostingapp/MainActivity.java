@@ -15,34 +15,29 @@ import android.widget.EditText;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
+//this is the first activity that runs and it opens the main menu as well as detects button clicks for which page to inflate next
 public class MainActivity extends AppCompatActivity {
+
+    //constructing buttons
     Button editText;
     Button editText2;
+
     @Override
+    //on create the activity_main layout inflates
+    //the layout includes two buttons that lead to other activities and pages and an imageView of Bucky the Beaver (*AKA Elena in stuffy mascot suit*)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-//        setSupportActionBar(myToolbar);
+
         editText = (Button) findViewById(R.id.button);
         editText2 = (Button) findViewById(R.id.button2);
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
 
-        //connects searchable config to the searchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
 
-        return true;
-    }
-
-    /** Called when the user taps the Send button */
+    /**
+     * Called when the user taps the Map button
+     * launches an intent to launch the next activity which generates the map layout
+     */
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         String message = editText2.getText().toString();
@@ -50,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    /**
+     * Called when the user taps the How to Compost button
+     * launches an intent to launch the next activity which generates the listView layout of all the items in our csv file
+     */
     public void openGuide(View view) {
         Intent intent = new Intent(this, SingleListItemActivity.class);
         String message = editText.getText().toString();
