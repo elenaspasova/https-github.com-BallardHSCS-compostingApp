@@ -244,6 +244,7 @@ public class newSearchActivity extends AppCompatActivity {
             b.putInt("reslocation", resLocation);
             b.putInt("itemlocation", itemLocation);
             b.putInt("binlocation", binLocation);
+            b.putInt("filter", filter);
             intent.putExtras(b);
             mEdit.setText("");
             startActivity(intent);

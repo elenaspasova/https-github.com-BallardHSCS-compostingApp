@@ -75,7 +75,7 @@ public class SearchItemResults extends AppCompatActivity {
             myText.setText(multiLineText);
             myText.setTextSize(getResources().getDimension(R.dimen.search_result_text_size));
             lView.addView(myText);
-            if (bin.equals("Trash")) {
+            if (bin.equals("Garbage")) {
                 ImageView myImage = new ImageView(this);
                 myImage.setImageResource(R.drawable.garbage);
                 lView.addView(myImage);
@@ -120,7 +120,7 @@ public class SearchItemResults extends AppCompatActivity {
                 setContentView(lView3);
                 myText3 = new TextView(this);
                 myText3.setTextSize(getResources().getDimension(R.dimen.search_result_res_size));
-                String multiLineText3 = "Items found at " + binName + "\n";
+                String multiLineText3 = "Items that go in the " + binName + "\n";
                 multiLineText3 += "\n";
                 for (int i = 0; i < itemList.size(); i++) {
                     String[] itemArray = itemList.get(i);
@@ -131,9 +131,9 @@ public class SearchItemResults extends AppCompatActivity {
 
                     }
                 }
-                myText2.setText(multiLineText3);
-                myText2.setTextSize(getResources().getDimension(R.dimen.search_result_res_size));
-                lView3.addView(myText2);
+                myText3.setText(multiLineText3);
+                myText3.setTextSize(getResources().getDimension(R.dimen.search_result_res_size));
+                lView3.addView(myText3);
 
         }
 
