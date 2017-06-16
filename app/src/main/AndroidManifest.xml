@@ -11,6 +11,8 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +22,8 @@
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:theme="@style/AppTheme.NoActionBar">
@@ -29,6 +33,8 @@
 
         </activity>
         <activity
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".SingleListItemActivity"
             android:label="SingleListItemActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -39,6 +45,8 @@
         </activity>
 
         <activity
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".newSearchActivity"
             android:label="newSearchActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -47,22 +55,20 @@
             </intent-filter>
 
         </activity>
-
         <activity
-            android:name=".SearchActivity">
-                <intent-filter>
-                    <action android:name="android.intent.action.SEARCH" />
-                    <category android:name="android.intent.category.DEFAULT" />
-                </intent-filter>
-                <meta-data android:name="android.app.searchable"
-                    android:resource="@xml/searchable" ></meta-data> /></activity>
-        <activity
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".SearchItemResults"
-            android:label="SearchItemResults">
+            android:label="SearchItemResults"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            /></activity>
+
+        </activity>
+
+
+
     </application>
 </manifest>
 

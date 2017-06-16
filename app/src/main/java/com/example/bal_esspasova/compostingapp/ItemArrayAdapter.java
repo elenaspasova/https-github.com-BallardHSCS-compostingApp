@@ -20,8 +20,11 @@ import java.util.List;
  * Created by bal_esspasova on 5/8/2017.
  */
 
+//this array adapter is necessary for the information in our csv files to come to life
+//ie be organized into arrays and thus be able to be displayed
 public class ItemArrayAdapter extends ArrayAdapter<String[]>{
 
+    //constructors
     private List<String[]> scoreList = new ArrayList<String[]>();
 
     static class ItemViewHolder{
@@ -35,6 +38,9 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
     }
 
     @Override
+    /**
+     * method adds strings to the scoreList array
+     */
     public void add(String[] object) {
         scoreList.add(object);
         super.add(object);
@@ -42,18 +48,27 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
 
     @Nullable
     @Override
+    /**
+     * gets the item at a given position in scoreList array
+     */
     public String[] getItem(int position) {
         return this.scoreList.get(position);
     }
 
     @NonNull
     @Override
+    /**
+     * populates the listView in item_layout.xml so users can see the items from our csv files and they can scroll through them
+     */
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         ItemViewHolder viewHolder;
         if(row == null){
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.single_item_layout, parent, false);
+
+            //inflates the listView item_layout because that is the one where it is desirable to put our data into
+            //once the listView is filled with data from scoreList it can be displayed
+            row = inflater.inflate(R.layout.item_layout, parent, false);
             viewHolder = new ItemViewHolder();
             viewHolder.itemName = (TextView) row.findViewById(R.id.itemName);
             viewHolder.bin = (TextView) row.findViewById(R.id.bin);
@@ -65,6 +80,13 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
             viewHolder = (ItemViewHolder) row.getTag();
         }
         String[] stat = getItem(position);
+
+        //one line of our data includes three items arranged horizontally
+        //the first part of the line is the name of the item located at index 0
+        //second is the proper bin for the item, index 1
+        //last is the location from which the item comes from, index 2
+        //.setText populates the listView so users can see the data from our csv file
+        //this data represents sets of items, bins, and locations
         viewHolder.itemName.setText(stat[0]);
         viewHolder.bin.setText(stat[1]);
         viewHolder.location.setText(stat[2]);

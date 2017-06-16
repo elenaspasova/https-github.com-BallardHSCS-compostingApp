@@ -34,7 +34,7 @@ public class SearchItemResults extends AppCompatActivity {
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
+        InputStream inputStream = getResources().openRawResource(R.raw.compostableitemsbyitem);
 
         CSVReader csv = new CSVReader(inputStream);
         itemList = csv.read();

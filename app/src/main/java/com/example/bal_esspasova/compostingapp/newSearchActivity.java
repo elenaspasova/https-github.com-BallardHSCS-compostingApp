@@ -17,45 +17,81 @@ import java.io.InputStream;
 import java.util.List;
 
 import static android.R.string.ok;
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
  * Created by mykal on 6/14/2017.
  */
 
+//this class is launched after the user presses How to Compost on the main menu
+    //this class detects several button pushes including those that handle the filtering of data, and start search
 public class newSearchActivity extends AppCompatActivity {
+    //lots of variables
     Button mButton;
     EditText mEdit;
     TextView mText;
     ListView listView;
     ItemArrayAdapter itemArrayAdapter;
 
-    private List<String[]> itemList;
-    private int itemLocation;
+    Button itemFilter;
+    Button binFilter;
+    Button locationFilter;
+    int filter;
+
+
+    List<String[]> itemList;
+    int itemLocation;
     int listLocation;
     int resLocation;
-    Boolean matchItem = false;
+    Boolean matchItem;
+
+    Button editText;
 
     /**
      * Called when the activity is first created.
+     * onCreate launches the page's layout
+     * creates four buttons: three for filtering, one is the enter button the user presses when they want to search for an item
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_item_layout);
+
         mButton = (Button) findViewById(R.id.enterButton);
         mButton.setOnClickListener(enterButton);
         mEdit = (EditText) findViewById(R.id.editText);
         mText = (TextView) findViewById(R.id.textView);
 
-        listView = (ListView) findViewById(R.id.single_item_layout);
-        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
+        itemFilter = (Button) findViewById(R.id.nameFilter);
+        itemFilter.setOnClickListener(filterByItem);
+        binFilter = (Button) findViewById(R.id.binFilter);
+        binFilter.setOnClickListener(filterByBin);
+        locationFilter = (Button) findViewById(R.id.locationFilter);
+        locationFilter.setOnClickListener(filterByLocation);
+
+        //the initial filter is the byItem filter
+        //alphabetizes by item's name
+        filter = R.raw.compostableitemsbyitem;
+        createTheArray(filter);
+    }
+
+    /**
+     * there are 3 csv files each corresponding with a desired filter
+     * createTheArray needs to repopulate the listView from SingleListActivity in case the user changes the filter
+     *
+     * @param filter accepts the int value of a csv file in the raw directory
+     *
+     */
+    private void createTheArray(int filter)
+    {
+        editText = (Button)findViewById(R.id.enterButton);
+        listView = (ListView) findViewById(R.id.single_item_list_view);
+        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
         Parcelable state = listView.onSaveInstanceState();
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
+        InputStream inputStream = getResources().openRawResource(filter);
 
         CSVReader csv = new CSVReader(inputStream);
         itemList = csv.read();
@@ -65,6 +101,9 @@ public class newSearchActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * if enter button is clicked, searchWord runs in attempt to find the word's position in the itemList
+     */
     private View.OnClickListener enterButton = new View.OnClickListener() {
         public void onClick(View v) {
             String txt = mEdit.getText().toString(); //Get txt from et when button is clicked
@@ -74,7 +113,38 @@ public class newSearchActivity extends AppCompatActivity {
         }
     };
 
+    //detects if user chooses to filter by Item Name
+    //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
+        private View.OnClickListener filterByItem = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbyitem);
+        }
+    };
 
+    //detects if user chooses to filter by Bin Type
+    //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
+        private View.OnClickListener filterByBin = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbybin);
+        }
+    };
+
+    //detects if user chooses to filter by Location
+    //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
+    private View.OnClickListener filterByLocation = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbylocation);
+        }
+    };
+
+
+
+    /**
+     *
+     * @param text the user input into the search bar immediately prior to pressing Enter
+     * @param itemList the entire list of data according to the desired filter
+     * @return
+     */
     public void searchWord(String text, List<String[]> itemList) {
 
         if (text != null) {
