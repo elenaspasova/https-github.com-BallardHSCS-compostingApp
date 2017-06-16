@@ -1,20 +1,20 @@
 package com.example.bal_esspasova.compostingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.InputStream;
 import java.util.List;
 
-import static android.R.string.ok;
+import static android.R.attr.filter;
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
  * Created by mykal on 6/14/2017.
@@ -27,11 +27,19 @@ public class newSearchActivity extends AppCompatActivity {
     ListView listView;
     ItemArrayAdapter itemArrayAdapter;
 
+    Button itemFilter;
+    Button binFilter;
+    Button locationFilter;
+    int filter;
+
+
     List<String[]> itemList;
     int itemLocation;
     int listLocation;
     int resLocation;
     Boolean matchItem;
+
+    Button editText;
 
     /**
      * Called when the activity is first created.
@@ -45,6 +53,21 @@ public class newSearchActivity extends AppCompatActivity {
         mEdit = (EditText) findViewById(R.id.editText);
         mText = (TextView) findViewById(R.id.textView);
 
+
+        itemFilter = (Button) findViewById(R.id.nameFilter);
+        itemFilter.setOnClickListener(filterByItem);
+        binFilter = (Button) findViewById(R.id.binFilter);
+        binFilter.setOnClickListener(filterByBin);
+        locationFilter = (Button) findViewById(R.id.locationFilter);
+        locationFilter.setOnClickListener(filterByLocation);
+
+        filter = R.raw.compostableitemsbyitem;
+        createTheArray(filter);
+    }
+
+    private void createTheArray(int filter)
+    {
+        editText = (Button)findViewById(R.id.enterButton);
         listView = (ListView) findViewById(R.id.single_item_list_view);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
@@ -52,7 +75,7 @@ public class newSearchActivity extends AppCompatActivity {
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.compostableitems);
+        InputStream inputStream = getResources().openRawResource(filter);
 
         CSVReader csv = new CSVReader(inputStream);
         itemList = csv.read();
@@ -67,6 +90,24 @@ public class newSearchActivity extends AppCompatActivity {
             String txt = mEdit.getText().toString(); //Get txt from et when button is clicked
             mText.setText(txt);
             searchWord(txt, itemList);
+        }
+    };
+
+        private View.OnClickListener filterByItem = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbyitem);
+        }
+    };
+
+        private View.OnClickListener filterByBin = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbybin);
+        }
+    };
+
+    private View.OnClickListener filterByLocation = new View.OnClickListener() {
+        public void onClick(View v) {
+            createTheArray(R.raw.compostableitemsbylocation);
         }
     };
 
