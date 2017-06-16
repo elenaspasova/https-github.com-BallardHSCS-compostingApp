@@ -37,6 +37,17 @@
             </intent-filter>
 
         </activity>
+
+        <activity
+            android:name=".newSearchActivity"
+            android:label="newSearchActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".SearchActivity">
                 <intent-filter>
