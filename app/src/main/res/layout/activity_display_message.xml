@@ -49,23 +49,26 @@
             android:layout_above="@id/key">
 
             <Button
-                android:gravity="right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/level1"
                 android:text="First Floor"
                 android:layout_weight="1"
-                android:textAlignment="center"/>
+                android:gravity="center_vertical|center_horizontal"
+                android:background="#90CAF9"
+                android:layout_margin="5dp"/>
 
 
             <Button
-                android:gravity="left"
+                android:gravity="center_vertical|center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/level2"
                 android:text="Second Floor"
                 android:layout_weight="1"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:background="#90CAF9"
+                android:layout_margin="5dp"/>
 
 
         </LinearLayout>
