@@ -159,9 +159,6 @@ public class newSearchActivity extends AppCompatActivity {
                     listLocation = i;
                     break;
                 }
-                else{
-                    matchItem = false;
-                }
             }
             //user searched for an item
             if (matchItem) {
