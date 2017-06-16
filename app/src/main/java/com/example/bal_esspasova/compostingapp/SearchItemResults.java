@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.io.InputStream;
 import java.util.List;
 
+import static android.R.attr.filter;
+
 /**
  * Created by mykal on 6/15/2017.
  */
@@ -24,9 +26,17 @@ public class SearchItemResults extends AppCompatActivity {
     private TextView myText = null;
     private TextView myText2 = null;
 
+    int filter;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_results);
+
+        Bundle b = this.getIntent().getExtras();
+        int itemLocation = b.getInt("itemlocation");
+        int resLocation = b.getInt("reslocation");
+        int filter = b.getInt("filter");
+
         listView = (ListView) findViewById(R.id.search_results);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
 
@@ -34,7 +44,8 @@ public class SearchItemResults extends AppCompatActivity {
         listView.setAdapter(itemArrayAdapter);
         listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.compostableitemsbyitem);
+
+        InputStream inputStream = getResources().openRawResource(filter);
 
         CSVReader csv = new CSVReader(inputStream);
         itemList = csv.read();
@@ -44,9 +55,7 @@ public class SearchItemResults extends AppCompatActivity {
         }
 
 
-        Bundle b = this.getIntent().getExtras();
-        int itemLocation = b.getInt("itemlocation");
-        int resLocation = b.getInt("reslocation");
+
         if (itemLocation != -1) {
             String[] searchedItem = itemList.get(itemLocation);
             String itemName = searchedItem[0];

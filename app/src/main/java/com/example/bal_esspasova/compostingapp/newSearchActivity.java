@@ -117,7 +117,8 @@ public class newSearchActivity extends AppCompatActivity {
     //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
         private View.OnClickListener filterByItem = new View.OnClickListener() {
         public void onClick(View v) {
-            createTheArray(R.raw.compostableitemsbyitem);
+            filter = R.raw.compostableitemsbyitem;
+            createTheArray(filter);
         }
     };
 
@@ -125,7 +126,8 @@ public class newSearchActivity extends AppCompatActivity {
     //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
         private View.OnClickListener filterByBin = new View.OnClickListener() {
         public void onClick(View v) {
-            createTheArray(R.raw.compostableitemsbybin);
+            filter = R.raw.compostableitemsbybin;
+            createTheArray(filter);
         }
     };
 
@@ -133,7 +135,8 @@ public class newSearchActivity extends AppCompatActivity {
     //calls on createTheArray to repopulate the listView with a new csv file, meaning changed settings
     private View.OnClickListener filterByLocation = new View.OnClickListener() {
         public void onClick(View v) {
-            createTheArray(R.raw.compostableitemsbylocation);
+            filter = R.raw.compostableitemsbylocation;
+            createTheArray(filter);
         }
     };
 
@@ -193,6 +196,7 @@ public class newSearchActivity extends AppCompatActivity {
             Bundle b = new Bundle();
             b.putInt("itemlocation", itemLocation);
             b.putInt("reslocation", resLocation);
+            b.putInt("filter", filter);
             intent.putExtras(b);
             startActivity(intent);
 //            return "item: " + itemLocation;
