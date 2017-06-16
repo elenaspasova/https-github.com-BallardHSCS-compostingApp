@@ -42,7 +42,8 @@ public class newSearchActivity extends AppCompatActivity {
     int itemLocation;
     int listLocation;
     int resLocation;
-    Boolean matchItem;
+    int binLocation;
+    Boolean matchItem = false;
 
     Button editText;
 
@@ -163,6 +164,7 @@ public class newSearchActivity extends AppCompatActivity {
             if (matchItem) {
                 itemLocation = listLocation;
                 resLocation = -1;
+                binLocation = -1;
                 //display that items info based off the value of listLocation
             }
             else if(!matchItem) {
@@ -179,10 +181,31 @@ public class newSearchActivity extends AppCompatActivity {
                     if(matchItem){
                         resLocation = listLocation;
                         itemLocation = -1;
+                        binLocation = -1;
                     }
                     else{
-                        resLocation = -1;
-                        itemLocation = -1;
+                        for (int i = 0; i < itemList.size(); i++) {
+                            String[] itemArray = itemList.get(i);
+                            //user searched for a restaurant
+                            if (itemArray[1].trim().equals(text)) {
+                                matchItem = true;
+                                listLocation = i;
+                                break;
+                            }
+
+                        }
+                        if(matchItem){
+                            binLocation = listLocation;
+                            resLocation = -1;
+                            itemLocation = -1;
+                        }
+                        else{
+                            binLocation = -1;
+                            resLocation = -1;
+                            itemLocation = -1;
+                        }
+
+
                     }
                 }
 
@@ -198,6 +221,7 @@ public class newSearchActivity extends AppCompatActivity {
             b.putInt("reslocation", resLocation);
             b.putInt("filter", filter);
             intent.putExtras(b);
+            mEdit.setText("");
             startActivity(intent);
 //            return "item: " + itemLocation;
 //            user typed an item that matches
@@ -208,9 +232,20 @@ public class newSearchActivity extends AppCompatActivity {
             b.putInt("reslocation", resLocation);
             b.putInt("itemlocation", itemLocation);
             intent.putExtras(b);
+            mEdit.setText("");
             startActivity(intent);
             //return "restaurant: " + listLocation;
             //user typed a restaurant that matches
+        }
+        else if(binLocation != -1){
+            Intent intent = new Intent(newSearchActivity.this, SearchItemResults.class);
+            Bundle b = new Bundle();
+            b.putInt("reslocation", resLocation);
+            b.putInt("itemlocation", itemLocation);
+            b.putInt("binlocation", binLocation);
+            intent.putExtras(b);
+            mEdit.setText("");
+            startActivity(intent);
         }
         else{
             LinearLayout lView3 = new LinearLayout(this);

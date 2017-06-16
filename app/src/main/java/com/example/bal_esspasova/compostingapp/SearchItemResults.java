@@ -25,6 +25,7 @@ public class SearchItemResults extends AppCompatActivity {
     ItemArrayAdapter itemArrayAdapter;
     private TextView myText = null;
     private TextView myText2 = null;
+    private TextView myText3 = null;
 
     int filter;
 
@@ -35,6 +36,7 @@ public class SearchItemResults extends AppCompatActivity {
         Bundle b = this.getIntent().getExtras();
         int itemLocation = b.getInt("itemlocation");
         int resLocation = b.getInt("reslocation");
+        int binLocation = b.getInt("binlocation");
         int filter = b.getInt("filter");
 
         listView = (ListView) findViewById(R.id.search_results);
@@ -86,10 +88,7 @@ public class SearchItemResults extends AppCompatActivity {
                 myImage.setImageResource(R.drawable.recycle);
                 lView.addView(myImage);
             }
-        } else {
-            //resLocation = b.getInt("resLocation");
-
-            if (resLocation != -1) {
+        } else if (resLocation != -1) {
                 String[] searchedRes = itemList.get(resLocation);
                 String resName = searchedRes[2].trim();
                 LinearLayout lView2 = new LinearLayout(this);
@@ -114,6 +113,28 @@ public class SearchItemResults extends AppCompatActivity {
 
 
             }
+            else if (binLocation != -1){
+                String[] searchedRes = itemList.get(binLocation);
+                String binName = searchedRes[1].trim();
+                LinearLayout lView3 = new LinearLayout(this);
+                setContentView(lView3);
+                myText3 = new TextView(this);
+                myText3.setTextSize(getResources().getDimension(R.dimen.search_result_res_size));
+                String multiLineText3 = "Items found at " + binName + "\n";
+                multiLineText3 += "\n";
+                for (int i = 0; i < itemList.size(); i++) {
+                    String[] itemArray = itemList.get(i);
+                    //user searched for a restaurant
+                    if (itemArray[1].trim().equals(binName)) {
+                        multiLineText3 += itemArray[0] + "      " + "Location: " + itemArray[2] + "\n";
+                        multiLineText3 += "\n";
+
+                    }
+                }
+                myText2.setText(multiLineText3);
+                myText2.setTextSize(getResources().getDimension(R.dimen.search_result_res_size));
+                lView3.addView(myText2);
+
         }
 
 
