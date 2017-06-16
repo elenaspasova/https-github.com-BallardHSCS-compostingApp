@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.io.InputStream;
@@ -25,11 +26,13 @@ public class SingleListItemActivity extends AppCompatActivity{
     ListView listView;
     ItemArrayAdapter itemArrayAdapter;
     private List<String[]> itemList = new ArrayList();
+    Button editText;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_item_layout);
+        editText = (Button) findViewById(R.id.enterButton);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
 //        setSupportActionBar(toolbar);
@@ -42,7 +45,6 @@ public class SingleListItemActivity extends AppCompatActivity{
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
 
         listView = (ListView) findViewById(R.id.single_item_layout);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
@@ -59,11 +61,14 @@ public class SingleListItemActivity extends AppCompatActivity{
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
         }
+
+
+
     }
     public void openSearch(View view) {
         Intent intent = new Intent(this, newSearchActivity.class);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 }
