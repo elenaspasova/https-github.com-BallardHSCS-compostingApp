@@ -53,7 +53,7 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]>{
         ItemViewHolder viewHolder;
         if(row == null){
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.single_item_layout, parent, false);
+            row = inflater.inflate(R.layout.item_layout, parent, false);
             viewHolder = new ItemViewHolder();
             viewHolder.itemName = (TextView) row.findViewById(R.id.itemName);
             viewHolder.bin = (TextView) row.findViewById(R.id.bin);

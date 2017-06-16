@@ -45,8 +45,8 @@ public class newSearchActivity extends AppCompatActivity {
         mEdit = (EditText) findViewById(R.id.editText);
         mText = (TextView) findViewById(R.id.textView);
 
-        listView = (ListView) findViewById(R.id.single_item_layout);
-        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
+        listView = (ListView) findViewById(R.id.single_item_list_view);
+        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
         Parcelable state = listView.onSaveInstanceState();
         listView.setAdapter(itemArrayAdapter);
