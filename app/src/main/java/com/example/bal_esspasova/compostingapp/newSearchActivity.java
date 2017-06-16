@@ -41,11 +41,10 @@ public class newSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_item_layout);
         mButton = (Button) findViewById(R.id.enterButton);
-        //mButton.setOnClickListener(enterButton);
+        mButton.setOnClickListener(enterButton);
         mEdit = (EditText) findViewById(R.id.editText);
         mText = (TextView) findViewById(R.id.textView);
-        String txt = mEdit.getText().toString(); //Get txt from et when button is clicked
-        mText.setText(txt);
+
         listView = (ListView) findViewById(R.id.single_item_layout);
         itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.single_item_layout);
 
@@ -61,18 +60,15 @@ public class newSearchActivity extends AppCompatActivity {
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
         }
-        searchWord(txt, itemList);
-
-
-
     }
-//    private View.OnClickListener enterButton = new View.OnClickListener() {
-//        public void onClick(View v) {
-//            String txt = mEdit.getText().toString(); //Get txt from et when button is clicked
-//            mText.setText(txt);
-//            searchWord(txt);
-//        }
-//    };
+
+    private View.OnClickListener enterButton = new View.OnClickListener() {
+        public void onClick(View v) {
+            String txt = mEdit.getText().toString(); //Get txt from et when button is clicked
+            mText.setText(txt);
+            searchWord(txt, itemList);
+        }
+    };
 
 
     public String searchWord(String text, List<String[]> itemList) {

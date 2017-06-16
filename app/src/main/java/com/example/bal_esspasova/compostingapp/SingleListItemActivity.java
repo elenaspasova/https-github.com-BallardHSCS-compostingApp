@@ -61,14 +61,13 @@ public class SingleListItemActivity extends AppCompatActivity{
         for(String [] itemData : itemList) {
             itemArrayAdapter.add(itemData);
         }
-
-
-
-    }
-    public void openSearch(View view) {
         Intent intent = new Intent(this, newSearchActivity.class);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+
+
+
     }
+
 }
